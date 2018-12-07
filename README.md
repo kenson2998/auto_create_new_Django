@@ -16,7 +16,17 @@ whitenoise==3.3.1
 
 4.  
 建立完成會開啟Chrome來開啟剛剛完成的專案首頁。  
-
+</hr>
+download下來後，直接點擊:自動產生Django專案.bat。
 ![](https://raw.githubusercontent.com/kenson2998/auto_create_new_Django/master/img/django-0.png)
+</hr>
+第一次輸入命名專案資料夾的名稱  
+第二次輸入命名應用名稱  
+按下送出後就會自動產生和修改wsgi.py、urls.py、views.py、setting.py，一些基本設定。
 ![](https://raw.githubusercontent.com/kenson2998/auto_create_new_Django/master/img/django-1.png)
+</hr>
+我沒安裝Firefox(汗),所以只寫了Chrome來開啟首頁，可以在瀏覽器直接打上 url: localhost。
+有出現 Hello 你的APP名稱 homepage ! 就算成功囉。
 ![](https://raw.githubusercontent.com/kenson2998/auto_create_new_Django/master/img/django-2.png)
+
+至於Django服務開啟的方法和建構資料庫相關修改，就需要自行研究囉。
