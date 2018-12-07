@@ -16,3 +16,7 @@ whitenoise==3.3.1
 
 4.  
 建立完成會開啟Chrome來開啟剛剛完成的專案首頁。  
+
+![](https://raw.githubusercontent.com/kenson2998/auto_create_new_Django/master/img/djanog-0.jpg)
+![](https://raw.githubusercontent.com/kenson2998/auto_create_new_Django/master/img/djanog-1.jpg)
+![](https://raw.githubusercontent.com/kenson2998/auto_create_new_Django/master/img/djanog-2.jpg)
