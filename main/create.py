@@ -1,4 +1,3 @@
-
 import os, shutil
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -23,8 +22,8 @@ shutil.copytree(app_name, app_path)
 shutil.rmtree(app_name)
 
 ########     settings.py
-data = ["'django.contrib.staticfiles',", "TIME_ZONE = 'UTC'", "STATIC_URL = '/static/'"]
-word = ["TIME_ZONE = 'Asia/Taipei'", "STATIC_ROOT = 'static'", "STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)"]
+data = ["'django.contrib.staticfiles',", "TIME_ZONE = 'UTC'", "STATIC_URL = '/static/'", "'DIRS': [],"]
+word = ["TIME_ZONE = 'Asia/Taipei'\n", "STATIC_ROOT = 'static'", "STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)","'DIRS': [os.path.join(BASE_DIR, 'templates')],\n"]
 
 rewrite = ''
 with open(pro_set_dir + r'\settings.py', 'r+') as f:
@@ -32,9 +31,11 @@ with open(pro_set_dir + r'\settings.py', 'r+') as f:
         if data[0] in line:
             rewrite += line + "    '%s',\n" % app_name
         elif data[1] in line:
-            rewrite += word[0] + "\n"
+            rewrite += word[0]
         elif data[2] in line:
             rewrite += "%s\n%s\n%s" % (line, word[1], word[2])
+        elif data[3] in line:
+            rewrite += word[3]
         else:
             rewrite += line
 
@@ -97,6 +98,6 @@ with open(app_path + r'\views.py', 'r+') as f:
 with open(app_path + r'\views.py', 'w') as w:
     w.write(rewrite)
 
-
 os.system(r'mkdir %s\templates' % proj_dir)
+os.system(r'mkdir %s\static' % proj_dir)
 os.system(r'python %s\manage.py runserver 80' % proj_dir)
