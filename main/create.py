@@ -25,7 +25,7 @@ shutil.rmtree(app_name)
 data = ["'django.contrib.staticfiles',", "TIME_ZONE = 'UTC'", "STATIC_URL = '/static/'", "'DIRS': [],",
         "ALLOWED_HOSTS = []"]
 word = ["TIME_ZONE = 'Asia/Taipei'\n", "STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)",
-        "'DIRS': [os.path.join(BASE_DIR, 'templates')],\n", "ALLOWED_HOSTS = [*]\n"]
+        "'DIRS': [os.path.join(BASE_DIR, 'templates')],\n", "ALLOWED_HOSTS = ['*']\n"]
 
 rewrite = ''
 with open(os.path.join(pro_set_dir, "settings.py"), 'r+') as f:
@@ -36,10 +36,10 @@ with open(os.path.join(pro_set_dir, "settings.py"), 'r+') as f:
             rewrite += word[0]
         elif data[2] in line:
             rewrite += "%s\n%s" % (line, word[1])
-        elif data[2] in line:
-            rewrite += word[3]
         elif data[3] in line:
-            rewrite += word[4]
+            rewrite += word[2]
+        elif data[4] in line:
+            rewrite += word[3]
         else:
             rewrite += line
 
